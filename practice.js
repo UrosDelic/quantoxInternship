@@ -1,8 +1,8 @@
-function factorial(n) {
-  if (n === 0) {
-    return 1;
-  } else {
-    return n * factorial(n - 1);
-  }
+
+function submit() {
+  label1.innerHTML = input1.value;
 }
-console.log(factorial(5));
+
+const button1 = document.getElementById('button');
+const label1 = document.getElementById('label');
+const input1 = document.getElementById('input');
