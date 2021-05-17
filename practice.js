@@ -17,16 +17,17 @@ var recordCollection = {
     albumTitle: "ABBA Gold",
   },
 };
-
 function updateRecords(records, id, prop, value) {
-  if (value === "") delete records[id][prop];
-  else if (prop === "tracks") {
-    records[id][prop] = records[id][prop] || []; // this is called shortcircuit evaluation, see below for explanation
-    records[id][prop].push(value);
-  } else {
+  if (prop !== "tracks" && value !== "") {
     records[id][prop] = value;
+  } else if (prop === "tracks" && records[id].hasOwnProperty("tracks") === false) {
+    records[id][prop] = [value];
+  } else if (prop === "tracks" && value !== "") {
+    records[id][prop].push(value);
+  } else if (value === "") {
+    delete records[id][prop];
   }
   return records;
 }
-console.log(recordCollection, "objekat");
-updateRecords(recordCollection, 5439);
+
+updateRecords(recordCollection, 5439, "artist", "ABBA");
