@@ -12,4 +12,11 @@ function calcAvg(...arr) {
   return avg.toFixed(1);
 }
 
-console.log(calcAvg(6, 6, 7));
+function calcAvgES(...arr) {
+  const postiveNumbers = arr.filter((number) => number > 5);
+  const sumOfNumbers = postiveNumbers.reduce((sum, el) => sum + el);
+  const averageNumber = sumOfNumbers / postiveNumbers.length;
+  return averageNumber;
+}
+
+console.log(calcAvgES(5, 6, 7));
