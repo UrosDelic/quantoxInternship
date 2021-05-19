@@ -1,11 +1,11 @@
 function calcAvg(...arr) {
   let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < 6) {
+  for (let number of arr) {
+    if (number < 6) {
       console.log("negative number");
       return;
     } else {
-      sum = sum + arr[i];
+      sum = sum + number;
     }
   }
   let avg = sum / arr.length;
@@ -19,4 +19,4 @@ function calcAvgES(...arr) {
   return averageNumber;
 }
 
-console.log(calcAvgES(5, 6, 7));
+console.log(calcAvg(6, 5, 8));
